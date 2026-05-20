@@ -126,12 +126,12 @@ export function Hero() {
               {/* Floating tags */}
               <FloatingTag
                 text="Next.js"
-                className="top-2 right-0"
+                className="top-2 right-2 sm:right-0"
                 delay={0}
               />
               <FloatingTag
                 text="FastAPI"
-                className="top-1/2 -right-4"
+                className="top-1/2 right-0 sm:-right-4"
                 delay={0.5}
               />
               <FloatingTag
@@ -146,7 +146,7 @@ export function Hero() {
               />
               <FloatingTag
                 text="RAG"
-                className="top-1/3 -left-4"
+                className="top-1/3 left-0 sm:-left-4"
                 delay={2}
               />
             </div>

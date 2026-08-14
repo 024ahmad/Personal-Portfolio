@@ -15,13 +15,18 @@ const mono = JetBrains_Mono({
 const display = Orbitron({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
+  weight: ["700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Sharoz · Agentic AI Engineer & Fullstack Developer",
+  // TODO: Replace with your real production domain before deploying.
+  metadataBase: new URL("https://your-domain.com"),
+  title: {
+    default: "Sharoz · Agentic AI Engineer & Fullstack Developer",
+    template: "%s · Sharoz",
+  },
   description:
-    "I build autonomous AI agents, RAG systems, and fullstack web apps with Next.js & FastAPI. Cyber Sakura aesthetic. Production ready.",
+    "I build autonomous AI agents, RAG systems, and fullstack web apps with Next.js & FastAPI. Neon Cyan aesthetic. Production ready.",
   keywords: [
     "Agentic AI",
     "AI Engineer",
@@ -33,16 +38,30 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Sharoz" }],
+  creator: "Sharoz",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
+    type: "website",
+    siteName: "Sharoz · Agentic AI Engineer",
     title: "Sharoz · Agentic AI Engineer & Fullstack Developer",
     description:
       "Autonomous AI agents and fullstack apps. Next.js + FastAPI specialist.",
-    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Sharoz · Agentic AI Engineer & Fullstack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sharoz · Agentic AI Engineer",
     description: "Autonomous AI + Fullstack. Building the future.",
+    images: ["/og.png"],
   },
 };
 

@@ -5,6 +5,7 @@ export const siteConfig = {
   bio: "I design and build agentic AI systems, fullstack web apps with Next.js & FastAPI, and polished interfaces that feel as good as they look. From LLM tool-use orchestration to production-grade APIs — I deliver end-to-end.",
   location: "Karachi, Pakistan",
   email: "ar339497hmad@gmail.com",
+  resume: "/Sharoz-Resume.pdf",
   social: {
     github: "https://github.com/024ahmad",
     linkedin: "https://www.linkedin.com/in/muhammad-sharoz-219353295/",
@@ -73,7 +74,6 @@ export const projects = [
     description:
       "Multi-agent system that autonomously researches topics, scrapes sources, and produces cited reports using LangGraph + Claude.",
     tags: ["LangGraph", "Claude API", "FastAPI", "Next.js"],
-    image: "/projects/agent.svg",
     live: "#",
     code: "#",
     featured: true,
@@ -83,7 +83,6 @@ export const projects = [
     description:
       "Production RAG pipeline with hybrid search, re-ranking, and streaming responses over a custom knowledge base.",
     tags: ["RAG", "Qdrant", "FastAPI", "OpenAI"],
-    image: "/projects/rag.svg",
     live: "#",
     code: "#",
     featured: true,
@@ -93,7 +92,6 @@ export const projects = [
     description:
       "GitHub bot that reviews PRs using tool-calling agents — runs tests, checks security, suggests refactors.",
     tags: ["Agents", "Tool Use", "Node.js", "GitHub API"],
-    image: "/projects/bot.svg",
     live: "#",
     code: "#",
     featured: true,
@@ -103,7 +101,6 @@ export const projects = [
     description:
       "Fullstack analytics dashboard with WebSocket streaming, custom charts, and role-based access.",
     tags: ["Next.js", "FastAPI", "PostgreSQL", "WS"],
-    image: "/projects/dash.svg",
     live: "#",
     code: "#",
     featured: false,
@@ -113,7 +110,6 @@ export const projects = [
     description:
       "Headless commerce with Stripe, server actions, and a custom admin panel.",
     tags: ["Next.js", "Stripe", "Postgres"],
-    image: "/projects/shop.svg",
     live: "#",
     code: "#",
     featured: false,
@@ -123,7 +119,6 @@ export const projects = [
     description:
       "Realtime voice AI assistant with streaming STT/TTS and tool calling.",
     tags: ["Realtime", "WebRTC", "Python"],
-    image: "/projects/voice.svg",
     live: "#",
     code: "#",
     featured: false,

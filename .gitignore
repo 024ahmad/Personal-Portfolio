@@ -40,3 +40,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 sync-to-e.sh
+
+# windows zone metadata
+*:Zone.Identifier
+
+# local resume working files (source-of-truth PDF lives in /public)
+/Sharoz-Resume.pdf
+/resume/
+/resume.html
+/resume-preview.png
+
+# personal notes
+/prompt.md
+/link.md

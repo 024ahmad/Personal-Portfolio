@@ -96,6 +96,21 @@ export function Contact() {
               action={handleSubmit}
               className="glass rounded-2xl p-6 sm:p-8 space-y-5"
             >
+              {/* Honeypot — hidden from humans, catches bots */}
+              <div
+                className="absolute -left-[9999px] top-auto"
+                aria-hidden="true"
+              >
+                <label htmlFor="company_name">Company name</label>
+                <input
+                  id="company_name"
+                  name="company_name"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-5">
                 <Field name="name" label="Name" required />
                 <Field name="email" type="email" label="Email" required />

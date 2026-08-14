@@ -8,6 +8,11 @@ export async function sendMessage(formData: FormData) {
   const subject = formData.get("subject")?.toString().trim() ?? "";
   const message = formData.get("message")?.toString().trim() ?? "";
 
+  // Honeypot — bots fill hidden fields; silently drop them.
+  if (formData.get("company_name")?.toString().trim()) {
+    return { ok: true as const };
+  }
+
   if (!name || !email || !message) {
     return { ok: false as const, error: "Please fill in all required fields." };
   }
@@ -36,18 +41,18 @@ export async function sendMessage(formData: FormData) {
         ? `[Portfolio] ${subject}`
         : `[Portfolio] New message from ${name}`,
       html: `
-        <div style="font-family: -apple-system, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #08060a; color: #f5e6f0; border-radius: 16px; border: 1px solid rgba(255, 45, 135, 0.2);">
-          <h2 style="color: #ff2d87; margin: 0 0 16px; font-size: 22px;">New Portfolio Message</h2>
-          <div style="background: rgba(255, 45, 135, 0.05); border: 1px solid rgba(255, 45, 135, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
-            <p style="margin: 4px 0;"><strong style="color: #ff6fb5;">Name:</strong> ${escapeHtml(name)}</p>
-            <p style="margin: 4px 0;"><strong style="color: #ff6fb5;">Email:</strong> <a href="mailto:${escapeHtml(email)}" style="color: #22e1ff;">${escapeHtml(email)}</a></p>
-            ${subject ? `<p style="margin: 4px 0;"><strong style="color: #ff6fb5;">Subject:</strong> ${escapeHtml(subject)}</p>` : ""}
+        <div style="font-family: -apple-system, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #05070d; color: #e8f4ff; border-radius: 16px; border: 1px solid rgba(0, 229, 255, 0.2);">
+          <h2 style="color: #00e5ff; margin: 0 0 16px; font-size: 22px;">New Portfolio Message</h2>
+          <div style="background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+            <p style="margin: 4px 0;"><strong style="color: #7fefff;">Name:</strong> ${escapeHtml(name)}</p>
+            <p style="margin: 4px 0;"><strong style="color: #7fefff;">Email:</strong> <a href="mailto:${escapeHtml(email)}" style="color: #66a6ff;">${escapeHtml(email)}</a></p>
+            ${subject ? `<p style="margin: 4px 0;"><strong style="color: #7fefff;">Subject:</strong> ${escapeHtml(subject)}</p>` : ""}
           </div>
-          <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #ff2d87; padding: 16px; border-radius: 4px;">
-            <p style="margin: 0 0 8px; color: #ff6fb5; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Message</p>
+          <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #00e5ff; padding: 16px; border-radius: 4px;">
+            <p style="margin: 0 0 8px; color: #7fefff; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Message</p>
             <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${escapeHtml(message)}</p>
           </div>
-          <p style="margin-top: 24px; font-size: 12px; color: rgba(245, 230, 240, 0.5); text-align: center;">Sent from your portfolio contact form · Cyber Sakura</p>
+          <p style="margin-top: 24px; font-size: 12px; color: rgba(232, 244, 255, 0.5); text-align: center;">Sent from your portfolio contact form · Neon Cyan</p>
         </div>
       `,
     });

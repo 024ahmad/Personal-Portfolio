@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/navbar";
-import { SakuraPetals } from "@/components/sakura-petals";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
@@ -11,7 +10,6 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <>
-      <SakuraPetals />
       <Navbar />
       <main className="relative z-10">
         <Hero />

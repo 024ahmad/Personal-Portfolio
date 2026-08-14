@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #08060a;
-  --foreground: #f5e6f0;
-  --pink: #ff2d87;
-  --pink-soft: #ff6fb5;
-  --pink-glow: #ff2d87;
-  --cyan: #22e1ff;
-  --grid: rgba(255, 45, 135, 0.12);
-  --card: rgba(255, 45, 135, 0.04);
-  --border: rgba(255, 45, 135, 0.18);
+  --background: #05070d;
+  --foreground: #e8f4ff;
+  --pink: #00e5ff;
+  --pink-soft: #7fefff;
+  --pink-glow: #00e5ff;
+  --cyan: #3d7bff;
+  --grid: rgba(0, 229, 255, 0.1);
+  --card: rgba(0, 229, 255, 0.05);
+  --border: rgba(0, 229, 255, 0.2);
 }
 
 @theme inline {
@@ -35,6 +35,27 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Keep anchored sections clear of the fixed navbar */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Lightweight entrance — content is present in HTML, never blanked */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -54,38 +75,38 @@ body {
 
 .cyber-grid-dense {
   background-image:
-    linear-gradient(rgba(255, 45, 135, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 45, 135, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 /* Glow utilities */
 .glow-pink {
-  box-shadow: 0 0 24px rgba(255, 45, 135, 0.35), 0 0 60px rgba(255, 45, 135, 0.15);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35), 0 0 60px rgba(0, 229, 255, 0.15);
 }
 
 .glow-pink-strong {
-  box-shadow: 0 0 32px rgba(255, 45, 135, 0.6), 0 0 80px rgba(255, 45, 135, 0.3);
+  box-shadow: 0 0 32px rgba(0, 229, 255, 0.6), 0 0 80px rgba(0, 229, 255, 0.3);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(255, 45, 135, 0.6), 0 0 40px rgba(255, 45, 135, 0.3);
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6), 0 0 40px rgba(0, 229, 255, 0.3);
 }
 
 .text-glow-soft {
-  text-shadow: 0 0 12px rgba(255, 45, 135, 0.4);
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #ff2d87 0%, #ff6fb5 50%, #22e1ff 100%);
+  background: linear-gradient(135deg, #00e5ff 0%, #3d7bff 50%, #66a6ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-pink {
-  background: linear-gradient(135deg, #ff2d87 0%, #ff6fb5 100%);
+  background: linear-gradient(135deg, #00e5ff 0%, #3d7bff 100%);
 }
 
 /* Scanline effect */
@@ -95,8 +116,8 @@ body {
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255, 45, 135, 0.03) 0px,
-    rgba(255, 45, 135, 0.03) 1px,
+    rgba(0, 229, 255, 0.03) 0px,
+    rgba(0, 229, 255, 0.03) 1px,
     transparent 1px,
     transparent 3px
   );
@@ -104,48 +125,34 @@ body {
   z-index: 1;
 }
 
-/* Sakura petal animation */
-@keyframes fall {
-  0% {
-    transform: translateY(-10vh) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(110vh) translateX(100px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.petal {
-  position: absolute;
-  top: -10vh;
-  width: 12px;
-  height: 12px;
-  background: radial-gradient(ellipse at center, #ff6fb5 0%, #ff2d87 60%, transparent 100%);
-  border-radius: 50% 0 50% 0;
-  filter: drop-shadow(0 0 6px rgba(255, 45, 135, 0.6));
-  animation: fall linear infinite;
-  pointer-events: none;
-}
-
 /* Pulse glow */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 45, 135, 0.4), 0 0 40px rgba(255, 45, 135, 0.2);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), 0 0 40px rgba(0, 229, 255, 0.2);
   }
   50% {
-    box-shadow: 0 0 32px rgba(255, 45, 135, 0.7), 0 0 80px rgba(255, 45, 135, 0.4);
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.7), 0 0 80px rgba(0, 229, 255, 0.4);
   }
 }
 
 .pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Blinking online-status badge */
+@keyframes badge-blink {
+  0%, 100% {
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.15);
+  }
+  50% {
+    border-color: rgba(0, 229, 255, 0.95);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.55);
+  }
+}
+
+.status-blink {
+  animation: badge-blink 1.8s ease-in-out infinite;
 }
 
 /* Glitch */
@@ -170,17 +177,36 @@ body {
   background: #0a0810;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff2d87, #ff6fb5);
+  background: linear-gradient(180deg, #00e5ff, #3d7bff);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff2d87;
+  background: #00e5ff;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(255, 45, 135, 0.4);
+  background: rgba(0, 229, 255, 0.4);
   color: #fff;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+  .float,
+  .marquee,
+  .glitch:hover,
+  .shine,
+  .pulse-glow,
+  .fade-up,
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Shine effect */
@@ -193,7 +219,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 45, 135, 0.4) 50%,
+    rgba(0, 229, 255, 0.4) 50%,
     transparent 100%
   );
   background-size: 200% auto;
@@ -202,10 +228,10 @@ body {
 
 /* Glass card */
 .glass {
-  background: rgba(20, 10, 20, 0.4);
+  background: rgba(10, 15, 25, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 45, 135, 0.18);
+  border: 1px solid rgba(0, 229, 255, 0.18);
 }
 
 .glass-hover {
@@ -213,10 +239,10 @@ body {
 }
 
 .glass-hover:hover {
-  background: rgba(255, 45, 135, 0.06);
-  border-color: rgba(255, 45, 135, 0.5);
+  background: rgba(0, 229, 255, 0.06);
+  border-color: rgba(0, 229, 255, 0.5);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(255, 45, 135, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.2);
 }
 
 /* Float animation */

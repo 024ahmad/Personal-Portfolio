@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Send, Sparkles } from "lucide-react";
 import { siteConfig, stats } from "@/lib/data";
-import { Typewriter, TypewriterSequence } from "@/components/typewriter";
 
 export function Hero() {
   return (
@@ -26,50 +25,27 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-pink/40 bg-pink/5 mb-6"
+              className="status-blink inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-pink/40 bg-pink/5 mb-6"
             >
               <Sparkles size={14} className="text-pink" />
               <span className="font-mono text-xs uppercase tracking-widest text-pink">
-                Available for new projectsss
+                Available for new projects
               </span>
             </motion.div>
 
-            <h1 className="text-mega font-display font-black mb-6 min-h-[2.4em]">
-              <TypewriterSequence
-                startDelay={400}
-                gap={300}
-                speed={70}
-                lines={[
-                  {
-                    text: "Hi, I'm",
-                    className: "block text-foreground",
-                  },
-                  {
-                    text: siteConfig.name,
-                    className:
-                      "block gradient-text text-glow cursor-default",
-                    speed: 110,
-                  },
-                ]}
-              />
+            <h1 className="text-mega font-display font-black mb-6 fade-up">
+              <span className="block text-foreground">Hi, I&apos;m</span>
+              <span className="block gradient-text text-glow">
+                {siteConfig.name}
+              </span>
             </h1>
 
-            <h2 className="text-xl sm:text-2xl text-foreground/80 mb-4 font-display min-h-[1.6em]">
-              <Typewriter
-                text={siteConfig.role}
-                delay={2400}
-                speed={35}
-                showCursor={false}
-              />
+            <h2 className="text-xl sm:text-2xl text-foreground/80 mb-4 font-display min-h-[1.6em] fade-up">
+              {siteConfig.role}
             </h2>
 
-            <p className="text-foreground/60 text-lg max-w-xl mx-auto lg:mx-0 mb-8 min-h-[3em]">
-              <Typewriter
-                text={siteConfig.tagline}
-                delay={4200}
-                speed={20}
-                showCursor={false}
-              />
+            <p className="text-foreground/60 text-lg max-w-xl mx-auto lg:mx-0 mb-8 min-h-[3em] fade-up">
+              {siteConfig.tagline}
             </p>
 
             <motion.div
@@ -86,10 +62,18 @@ export function Hero() {
                 <ArrowRight size={18} />
               </a>
               <a
-                href="#contact"
+                href={siteConfig.resume}
+                download
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-pink/40 bg-pink/5 text-pink font-semibold transition-all duration-300 hover:bg-pink/15 hover:border-pink hover:-translate-y-0.5 hover:scale-[1.03] hover:glow-pink focus:outline-none focus-visible:ring-2 focus-visible:ring-pink focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
               >
                 <Download size={18} />
+                Resume
+              </a>
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-pink/40 bg-pink/5 text-pink font-semibold transition-all duration-300 hover:bg-pink/15 hover:border-pink hover:-translate-y-0.5 hover:scale-[1.03] hover:glow-pink focus:outline-none focus-visible:ring-2 focus-visible:ring-pink focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-95"
+              >
+                <Send size={18} />
                 Get in Touch
               </a>
             </motion.div>
